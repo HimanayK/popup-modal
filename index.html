@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup Modal</title>
+    <style>
+      :root {
+        --font-family: "poppins", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      html {
+        font-size: 62.5%; /*  62.5% * 16px = 10px */
+      }
+      body {
+        font-family: var(--font-family);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      p {
+        margin-bottom: 5rem;
+      }
+      #modal {
+        font-size: 3rem;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #dee2e6;
+        padding: 2rem 4rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 1.5rem;
+        display: none;
+      }
+      #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(151, 125, 125, 0.254);
+        display: none;
+    }
+    button {
+        padding: 1rem 2rem;
+        cursor: pointer;
+        border: 2px solid #adb5bd;
+        box-shadow: 2px 2px 4px gray, 2px 2px 4px rgb(53, 51, 51);
+        border-radius: 0.5rem;
+    }
+    #open-btn {
+        font-size: 3rem;
+    }
+    .close-btn {
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 0.1rem 0.8rem;
+    }
+
+    </style>
+  </head>
+  <body>
+    <button onclick="openModal()" id="open-btn">Open Modal</button>
+    <div onclick="closeModal()" id="overlay"></div>
+    <div id="modal">
+      <p>This is a popup modal!</p>
+      <button onclick="closeModal()" class="close-btn">x</button>
+    </div>
+  </body>
+  <script>
+    const modal = document.getElementById("modal");
+    const overlay = document.getElementById("overlay");
+    function openModal() {
+      modal.style.display = "block";
+      overlay.style.display = "block";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+      overlay.style.display = "none";
+    }
+  </script>
+</html>
